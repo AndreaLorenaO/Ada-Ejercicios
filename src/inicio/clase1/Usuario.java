@@ -12,5 +12,6 @@ public class Usuario {
 	public String test() {
 		nombre = "ABC";
 		return nombre;
+
 	}
 }
