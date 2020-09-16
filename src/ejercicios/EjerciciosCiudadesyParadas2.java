@@ -6,7 +6,7 @@ public class EjerciciosCiudadesyParadas2 {
 
 	public static void main(String[] args) {
 		mostrarTitulo();
-		int ciudades[] = procesar();
+		procesar();
 	}
 
 	private static int[] procesar() {
@@ -35,7 +35,6 @@ public class EjerciciosCiudadesyParadas2 {
 	}
 
 	private static void mostrarTitulo() {
-		// TODO Auto-generated method stub
 		System.out.println("Sistema de estaciones en ruta");
 		System.out.println();
 	}

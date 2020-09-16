@@ -11,6 +11,7 @@ public class EjercicioButacasTeatro {
 		int butacas[] = inicializarButacas();
 		int contador = procesarVenta(butacas);
 		mostrarVentas(contador, butacas);
+		dibujarButacas(butacas);
 	}
 
 	private static void darBienvenida() {
@@ -33,12 +34,31 @@ public class EjercicioButacasTeatro {
 		Scanner sc = new Scanner(System.in);
 		solicitudAsiento = sc.nextInt();
 		while (solicitudAsiento != 0) {
-			while (solicitudAsiento < 0 || solicitudAsiento > TOTAL_BUTACAS) {
+			switch (solicitudAsiento / 10) {
+			case 0:
+				System.out.println("Costo $100");
+				break;
+			case 1:
+				System.out.println("Costo $80");
+				break;
+			case 2:
+				System.out.println("Costo $60");
+				break;
+			case 3:
+				System.out.println("Costo $40");
+				break;
+			case 4:
+				System.out.println("Costo $20");
+				break;
+			default:
+				System.out.println("Numero no valido");
+				break;
+			}
+			if (solicitudAsiento < 0 || solicitudAsiento >= TOTAL_BUTACAS) {
 				System.out.println("Numero ingresado no valido");
 				System.out.println("Por favor ingrese numero entre 1 y 49");
 				solicitudAsiento = sc.nextInt();
-			}
-			while (0 < solicitudAsiento && solicitudAsiento < TOTAL_BUTACAS) {
+			} else {
 				System.out.println("Butaca " + solicitudAsiento + "=" + butacas[solicitudAsiento]);
 				if (butacas[solicitudAsiento] == 0) {
 					butacas[solicitudAsiento] = 1;
@@ -63,6 +83,22 @@ public class EjercicioButacasTeatro {
 			}
 		}
 		System.out.println("Butacas vendidas: " + contador);
+		System.out.println();
+	}
+
+	private static void dibujarButacas(int[] butacas) {
+		System.out.println("A continuacion se mostrara distribucion de butacas libres y vendidas");
+		for (int i = 0; i < butacas.length; i++) {
+			if (butacas[i] == 0) {
+				System.out.print(" _ ");
+			} else {
+				System.out.print(" x ");
+			}
+			if ((i + 1) % 10 == 0) {
+				System.out.println();
+			}
+		}
+		System.out.println();
 		System.out.println("Muchas gracias por utilizar nuestro servicio");
 	}
 }
