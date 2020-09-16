@@ -30,10 +30,10 @@ public class EjercicioButacasTeatro {
 	private static int procesarVenta(int[] butacas) {
 		int solicitudAsiento = 0;
 		int contador = 0;
-		System.out.println("Ingrese numero de butaca (=0=terminar)");
+		System.out.println("Ingrese numero de butaca (99=terminar)");
 		Scanner sc = new Scanner(System.in);
 		solicitudAsiento = sc.nextInt();
-		while (solicitudAsiento != 0) {
+		while (solicitudAsiento != 99) {
 			switch (solicitudAsiento / 10) {
 			case 0:
 				System.out.println("Costo $100");
@@ -67,7 +67,7 @@ public class EjercicioButacasTeatro {
 				} else {
 					System.out.println("Butaca ya vendida");
 				}
-				System.out.println("Ingrese numero de asiento (=0=terminar)");
+				System.out.println("Ingrese numero de asiento (99=terminar)");
 				solicitudAsiento = sc.nextInt();
 			}
 		}
