@@ -21,7 +21,7 @@ public class EjerciciosTelecomunicaciones {
 		return servicios;
 	}
 
-	private static int procesarVenta(int[] servicios) {
+	private static void procesarVenta(int[] servicios) {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Bienvenido al sistema online de servicio de comunicaciones");
 		System.out.println("Por favor, ingrese numero de cliente (0=terminar)");
@@ -33,16 +33,14 @@ public class EjerciciosTelecomunicaciones {
 				int servicio = sc.nextInt();
 				if (0 < servicio && servicio <= 3) {
 					servicios[servicio - 1] = servicios[servicio - 1] + 1;
-					System.out.println("Por favor, ingrese numero de cliente");
-					cliente = sc.nextInt();
 				} else {
 					System.out.println("Numero ingresado no valido");
 				}
 			} else {
 				System.out.println("Numero ingresado no valido");
-				System.out.println("Por favor, ingrese numero de cliente (0=terminar)");
-				cliente = sc.nextInt();
 			}
+			System.out.println("Por favor, ingrese numero de cliente");
+			cliente = sc.nextInt();
 		}
 		int totalRecaudado = 0;
 		totalRecaudado = (servicios[0] * COSTO_TELEF) + (servicios[1] * COSTO_BANDA) + (servicios[2] * COSTO_TV);
@@ -51,6 +49,5 @@ public class EjerciciosTelecomunicaciones {
 			System.out.println("La cantidad de servicios " + (i + 1) + " vendidos es " + servicios[i]);
 		}
 		sc.close();
-		return totalRecaudado;
 	}
 }
