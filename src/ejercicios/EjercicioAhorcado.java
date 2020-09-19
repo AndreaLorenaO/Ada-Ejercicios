@@ -64,7 +64,7 @@ public class EjercicioAhorcado {
 			}
 			System.out.println();
 			System.out.println("Parece que... ya vas acumulando un total de errores: " + contadorErrores);
-			if (contadorAciertos < palabra.length()) {
+			if (contadorAciertos < palabra.length() && contadorErrores != MAX_ERRORES) {
 				System.out.println("Ingresa una letra");
 				letra = sc.nextLine();
 			}
