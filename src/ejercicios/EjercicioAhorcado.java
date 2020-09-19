@@ -32,42 +32,50 @@ public class EjercicioAhorcado {
 			// return (palabra.length() >= MIN_PALABRA && palabra.length() <= MAX_PALABRA);
 			// }
 		}
-		return palabra;
+		return palabra.toUpperCase();
 	}
 
 	private static int adivinar(String palabra) {
-		int aciertos = 0;
-		int errores = 0;
+		int contadorAciertos = 0;
+		int contadorErrores = 0;
 		Scanner sc = new Scanner(System.in);
-		System.out.println("Ingrese una letra");
+		System.out.println("Ingresa una letra");
 		String letra = sc.nextLine();
-		boolean[] resultado = new boolean[palabra.length()];
-		while (aciertos < palabra.length() && errores != MAX_ERRORES) {
-			int posicion = palabra.indexOf(letra); // por ahora palabras sin letras repetidas
-			if (posicion != -1) {
-				resultado[posicion] = posicion != -1;
-				aciertos++;
+		boolean[] letrasCorrectas = new boolean[palabra.length()];
+		// con booleanos los lugares dentro del vector por defecto seran false
+		// char[] vectorLetras = new char[palabra.length];
+		// con char van los lugares dentro del vector arrancan vacios
+		while (contadorAciertos < palabra.length() && contadorErrores != MAX_ERRORES) {
+			int posicionLetra = palabra.indexOf(letra.toUpperCase()); // si la letra no existe devuelve -1
+			if (posicionLetra != -1) {
+				letrasCorrectas[posicionLetra] = true;
+				contadorAciertos++;
 			} else {
-				errores++;
+				contadorErrores++;
 			}
 			for (int i = 0; i < palabra.length(); i++) {
-				if (resultado[i]) {
+				if (letrasCorrectas[i]) {
+					// la condicion no entra en la declaracion del if porque al ser boolenao ya
+					// esta implicito
 					System.out.print(" " + palabra.charAt(i) + " ");
 				} else {
 					System.out.print(" _ ");
 				}
 			}
 			System.out.println();
-			System.out.println("Cuidado... ya vas acumulando un total de errores: " + errores);
-			System.out.println("Ingrese una letra");
-			letra = sc.nextLine();
+			System.out.println("Parece que... ya vas acumulando un total de errores: " + contadorErrores);
+			if (contadorAciertos < palabra.length()) {
+				System.out.println("Ingresa una letra");
+				letra = sc.nextLine();
+			}
+
 		}
-		if (errores == MAX_ERRORES) {
+		if (contadorErrores == MAX_ERRORES) {
 			System.out.println("Buuuu... intenta la proxima");
 		} else {
-			System.out.println("Parece que tenemos un ganador");
+			System.out.println("Parece que tenemos un ganador!!");
 		}
-		return errores;
+		return contadorErrores;
 	}
 
 	private static void mostrarPuntos(int intentosFallidos) {
