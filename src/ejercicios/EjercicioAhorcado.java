@@ -32,6 +32,7 @@ public class EjercicioAhorcado {
 			// return (palabra.length() >= MIN_PALABRA && palabra.length() <= MAX_PALABRA);
 			// }
 		}
+		sc.close();
 		return palabra.toUpperCase();
 	}
 
@@ -75,6 +76,7 @@ public class EjercicioAhorcado {
 		} else {
 			System.out.println("Parece que tenemos un ganador!!");
 		}
+		sc.close();
 		return contadorErrores;
 	}
 
