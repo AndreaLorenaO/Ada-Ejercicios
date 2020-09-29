@@ -43,10 +43,8 @@ public class EjercicioJuegoTateti {
 	}
 
 	private static void mostrarTablero(char[][] tablero) {
-		int filas = 0;
-		int columnas = 0;
-		for (filas = 0; filas < FILAS; filas++) {
-			for (columnas = 0; columnas < COLS; columnas++) {
+		for (int filas = 0; filas < FILAS; filas++) {
+			for (int columnas = 0; columnas < COLS; columnas++) {
 				System.out.print("[" + tablero[filas][columnas] + "]");
 			}
 			System.out.println();
