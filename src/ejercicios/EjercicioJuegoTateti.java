@@ -23,11 +23,10 @@ public class EjercicioJuegoTateti {
 			if (ganador) {
 				if (turno == 1 || turno == 3 || turno == 5 || turno == 7 || turno == 9) {
 					System.out.println("Felicidades Jugador 1");
-					System.out.println("GANASTE!");
 				} else {
 					System.out.println("Felicidades Jugador 2");
-					System.out.println("GANASTE!");
 				}
+				System.out.println("GANASTE!");
 			}
 		}
 		if (!ganador && turno == 9) {
