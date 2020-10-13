@@ -8,7 +8,7 @@ public class AppEnvios {
 		System.out.println("Bienvenido al sistema de envio");
 		System.out.println();
 		float pesoEnvio = solicitarPesoEnvio();
-		int zona = 0;
+		int zona;
 		while (pesoEnvio != 0) {
 			zona = solicitudZona();
 			Paquete paq = new Paquete(pesoEnvio, zona); // aca le paso al peso el pesoEnvio

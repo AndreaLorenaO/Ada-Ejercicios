@@ -24,27 +24,10 @@ public class Butaca {
 		this.ocupado = ocupado;
 	}
 
-	public void mostrarPrecio() {
-		switch (posicion / 10) {
-		case 0:
-			System.out.println("La butaca has seleccionado cuesta $100");
-			break;
-		case 1:
-			System.out.println("La butaca has seleccionado cuesta $80");
-			break;
-		case 2:
-			System.out.println("La butaca has seleccionado cuesta $60");
-			break;
-		case 3:
-			System.out.println("La butaca has seleccionado cuesta $40");
-			break;
-		case 4:
-			System.out.println("La butaca has seleccionado cuesta $20");
-			break;
-		default:
-			System.out.println("Numero no valido");
-			break;
-		}
+	public static Butaca crear() {
+		Butaca but = new Butaca();
+		return but;
+
 	}
 
 }
