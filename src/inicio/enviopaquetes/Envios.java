@@ -1,7 +1,5 @@
 package inicio.enviopaquetes;
 
-import java.util.Scanner;
-
 public class Envios {
 
 	private static float ZONA_1 = 11;
@@ -42,12 +40,6 @@ public class Envios {
 		System.out.println("Bienvenido al sistema de envio");
 		System.out.println();
 		System.out.println("Elija opcion 1-paquetes, opcion 2-cartas, opcion 3-dinero, 0=terminar");
-	}
-	
-	public static int solicitudZona() {
-		System.out.println("Ingrese zona a la que desea realizar el envio");
-		Scanner sc = new Scanner(System.in);
-		return sc.nextInt();
 	}
 
 	public float calcularPrecio() {
