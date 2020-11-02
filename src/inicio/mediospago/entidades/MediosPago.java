@@ -1,6 +1,6 @@
 package inicio.mediospago.entidades;
 
-public class MediosPago {
+public abstract class MediosPago {
 
 	public static int CODIGO_PAGO_EFECTIVO = 1;
 	public static int CODIGO_PAGO_TARJETA = 2;
@@ -37,5 +37,7 @@ public class MediosPago {
 	public void setMoneda(String moneda) {
 		this.moneda = moneda;
 	}
+
+	public abstract boolean validar();
 
 }

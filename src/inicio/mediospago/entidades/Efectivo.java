@@ -7,4 +7,10 @@ public class Efectivo extends MediosPago {
 
 	}
 
+	@Override
+	public boolean validar() {
+		return true;
+
+	}
+
 }

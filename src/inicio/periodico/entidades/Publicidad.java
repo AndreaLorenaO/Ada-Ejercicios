@@ -81,4 +81,13 @@ public class Publicidad extends Publicacion {
 		this.costoTotal = costoTotal;
 	}
 
+	public String toString() {
+		return "Tipo Publicidad; Tamano: " + tamano + ";" + " Marca: " + marca;
+	}
+
+	public int calcularPrecio() {
+		int costoTotal = costo + PRECIO_IMAGEN;
+		return costoTotal;
+	}
+
 }

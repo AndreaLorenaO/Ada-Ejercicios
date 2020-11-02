@@ -26,4 +26,8 @@ public class NotaVideo extends Nota {
 		this.periodista = periodista;
 	}
 
+	public String toString() {
+		return "Tipo Nota Video; Tamano: " + tamano + ";" + " Genero: " + genero + ";" + " Autor: " + periodista;
+	}
+
 }

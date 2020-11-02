@@ -2,7 +2,7 @@ package inicio.periodico.entidades;
 
 public abstract class Nota extends Publicacion {
 
-	private String genero;
+	public String genero;
 
 	public Nota(int tamano, String genero) {
 		super(tamano);

@@ -62,4 +62,16 @@ public class TarjetaCredito extends MediosPago {
 		this.importeRecargo = importeRecargo;
 	}
 
+	@Override
+	public boolean validar() {
+		// falta desarrollo del cuerpo
+		return false;
+	}
+
+	@Override
+	// estoy reescribiendo el metodo toString heredado de la superclase Object
+	public String toString() {
+		return "Numero: " + numero + " y " + "Vencimiento: " + vencimiento;
+	}
+
 }

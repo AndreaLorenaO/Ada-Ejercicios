@@ -35,4 +35,8 @@ public class NotaEscrita extends Nota {
 		this.cantPalabras = cantPalabras;
 	}
 
+	public String toString() {
+		return "Tipo Nota Escrita; Tamano: " + tamano + ";" + " Genero: " + genero + ";" + " Autor: " + autor;
+	}
+
 }

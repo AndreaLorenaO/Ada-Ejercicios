@@ -23,9 +23,13 @@ public class AppPeriodico {
 		Scanner sc = new Scanner(System.in);
 		Object publicaciones[] = new Object[TOTAL_PUBLICACIONES];
 		int totalRecaudado = 0;
-		int costo = 0;
-		int precioImagen = 0;
 		System.out.println("Bienvenido!");
+		solicitarPublicaciones(sc, publicaciones, totalRecaudado);
+		System.out.println();
+		listarPublicaciones(publicaciones);
+	}
+
+	private static void solicitarPublicaciones(Scanner sc, Object[] publicaciones, int totalRecaudado) {
 		for (int i = 0; i < TOTAL_PUBLICACIONES; i++) {
 			int tipo = solicitarTipo("publicacion: 1.Nota, 2.Publicidad", sc);
 			if (tipo == 1) {
@@ -33,48 +37,50 @@ public class AppPeriodico {
 				int subTipo = solicitarTipo("Nota que desea publicar: 1.Nota escrita, 2.Nota video", sc);
 				if (subTipo == 1) {
 					System.out.println("Has elegido Nota escrita como tipo de publicacion");
-					int tamano = solicitarTam("Ingrese tamano (area) de la nota escrita", sc);
-					String genero = solicitarInformacion("Ingrese el genero de la nota escrita", sc);
-					String autor = solicitarInformacion("Ingrese nombre completo del autor de la nota escrita", sc);
+					System.out.println("Ingrese tamano (area) de la nota escrita");
+					int tamano = sc.nextInt();
+					System.out.println("Ingrese el genero de la nota escrita");
+					String genero = sc.next();
+					System.out.println("Ingrese nombre completo del autor de la nota escrita");
+					String autor = sc.next();
 					NotaEscrita notaEsc = new NotaEscrita(tamano, genero, autor);
-					notaEsc.setTamano(tamano);
-					notaEsc.setGenero(genero);
-					notaEsc.setAutor(autor);
 					publicaciones[i] = notaEsc;
 				} else {
 					System.out.println("Has elegido Nota video como tipo de publicacion");
-					int tamano = solicitarTam("Ingrese tamano (area) de la nota video", sc);
-					String genero = solicitarInformacion("Ingrese el genero de la nota video", sc);
-					String periodista = solicitarInformacion("Ingrese nombre completo del autor de la nota video", sc);
+					System.out.println("Ingrese tamano (area) de la nota video");
+					int tamano = sc.nextInt();
+					System.out.println("Ingrese el genero de la nota video");
+					String genero = sc.next();
+					System.out.println("Ingrese nombre completo del periodista de la nota video");
+					String periodista = sc.next();
 					NotaVideo notaVideo = new NotaVideo(tamano, genero, periodista);
-					notaVideo.setTamano(tamano);
-					notaVideo.setGenero(genero);
-					notaVideo.setPeriodista(periodista);
 					publicaciones[i] = notaVideo;
 				}
 			} else {
 				System.out.println("Has elegido Publicidad como tipo de publicacion");
-				int tamano = solicitarTam("Ingrese tamano de la publicacion: 1.Chico, 2.Mediano, 3.Grande", sc);
-				String marca = solicitarInformacion("Ingrese nombre de la marca", sc);
+				System.out.println("Ingrese tamano de la publicacion: 1.Chico, 2.Mediano, 3.Grande");
+				int tamano = sc.nextInt();
+				System.out.println("Ingrese nombre de la marca");
+				String marca = sc.next();
 				Publicidad publicidad = new Publicidad(tamano, marca);
 				publicidad.isTieneImagen();
 				if (publicidad.tieneImagen) {
 					publicidad.getPrecioImagen();
-					publicidad.getCosto();
-					totalRecaudado = publicidad.setCosto();
 					publicaciones[i] = publicidad;
 				} else {
 					publicidad.getPrecioImagen();
-					publicidad.getCosto();
-					totalRecaudado = publicidad.setCosto();
-					System.out.println(totalRecaudado);
 					publicaciones[i] = publicidad;
 				}
 			}
 		}
 
-		System.out.println();
-		listarPublicaciones(publicaciones);
+		// Falta calcular el costo total de las publicidades
+		System.out.println("El total de recaudado por publicidades es: " + totalRecaudado);
+	}
+
+	private static int solicitarTipo(String mensaje, Scanner sc) {
+		System.out.println("Elija el tipo de " + mensaje);
+		return sc.nextInt();
 	}
 
 	private static void listarPublicaciones(Object[] publicaciones) {
@@ -83,20 +89,4 @@ public class AppPeriodico {
 		}
 		System.out.println();
 	}
-
-	private static int solicitarTipo(String mensaje, Scanner sc) {
-		System.out.println("Elija el tipo de " + mensaje);
-		return sc.nextInt();
-	}
-
-	private static int solicitarTam(String mensaje, Scanner sc) {
-		System.out.println(mensaje);
-		return sc.nextInt();
-	}
-
-	private static String solicitarInformacion(String mensaje, Scanner sc) {
-		System.out.println(mensaje);
-		return sc.next();
-	}
-
 }

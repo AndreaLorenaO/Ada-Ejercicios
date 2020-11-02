@@ -35,4 +35,11 @@ public class Cheque extends MediosPago {
 		this.banco = banco;
 	}
 
+	@Override
+	public boolean validar() {
+		// falta desarrollo del cuerpo
+		return false;
+
+	}
+
 }
