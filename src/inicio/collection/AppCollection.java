@@ -15,6 +15,7 @@ public class AppCollection {
 		pruebaSet();
 		pruebaListSolari();
 		pruebaSetSolari();
+
 	}
 
 	private static void pruebaList() {

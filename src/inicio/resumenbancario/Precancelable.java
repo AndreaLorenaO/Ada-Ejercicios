@@ -2,6 +2,8 @@ package inicio.resumenbancario;
 
 public interface Precancelable {
 
-	void cancelar(String motivo);
+	String tiempoEspera = "10";
+
+	void cancelar();
 
 }

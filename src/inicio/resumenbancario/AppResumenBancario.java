@@ -15,6 +15,11 @@ public class AppResumenBancario {
 	// acuerdo a las fechas dadas
 
 	public static void main(String[] args) throws ParseException {
+//		PlazoFijo plazoFijo = new PlazoFijo(0, null);
+//		System.out.println("Cancelacion del plazo fijo: " + plazoFijo.tiempoEspera + " dias");
+//		plazoFijo.cancelar();
+//		System.out.println();
+
 		MovimientosBancarios[] movimientos = new MovimientosBancarios[MOVIM_BANCARIOS];
 		Scanner sc = new Scanner(System.in);
 		String fechaMovBanc = null;

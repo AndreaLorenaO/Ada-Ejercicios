@@ -8,8 +8,9 @@ public class PlazoFijo extends MovimientosBancarios implements Precancelable {
 		super(importe, fecha);
 	}
 
-	public void cancelar(String motivo) {
-		System.out.println("Cancela plazo fijo por motivo: " + motivo);
+	public void cancelar() {
+		System.out.println("Motivo: tiempo de procesamiento de la solicitud");
+		// System.out.println("Cancela plazo fijo por motivo: " + motivo);
 
 	}
 

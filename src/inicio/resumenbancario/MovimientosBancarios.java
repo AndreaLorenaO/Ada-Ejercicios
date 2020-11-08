@@ -3,7 +3,7 @@ package inicio.resumenbancario;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class MovimientosBancarios {
+public abstract class MovimientosBancarios {
 
 	protected float importe;
 	protected Date fecha;
