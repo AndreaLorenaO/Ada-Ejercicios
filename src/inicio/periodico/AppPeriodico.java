@@ -15,66 +15,74 @@ import inicio.periodico.entidades.Publicidad;
 
 public class AppPeriodico {
 
-	private static final int TOTAL_PUBLICACIONES = 3;
+	private static final int TOTAL_PUBLICACIONES = 2;
 
 	public static void main(String[] args) {
 		// No se suele usar Object de esta forma
 		// Object es la superclase de todos, no tiene superclase
 		Scanner sc = new Scanner(System.in);
 		Object publicaciones[] = new Object[TOTAL_PUBLICACIONES];
+		int ancho = 0;
+		int alto = 0;
+		boolean tieneImagen = true;
 		int totalRecaudado = 0;
 		System.out.println("Bienvenido!");
-		solicitarPublicaciones(sc, publicaciones, totalRecaudado);
+		solicitarPublicaciones(sc, publicaciones, ancho, alto, tieneImagen, totalRecaudado);
 		System.out.println();
 		listarPublicaciones(publicaciones);
 	}
 
-	private static void solicitarPublicaciones(Scanner sc, Object[] publicaciones, int totalRecaudado) {
+	private static void solicitarPublicaciones(Scanner sc, Object[] publicaciones, int ancho, int alto,
+			boolean tieneImagen, int totalRecaudado) {
 		for (int i = 0; i < TOTAL_PUBLICACIONES; i++) {
 			int tipo = solicitarTipo("publicacion: 1.Nota, 2.Publicidad", sc);
 			if (tipo == 1) {
-				System.out.println("Has elegido Nota como tipo de publicacion");
 				int subTipo = solicitarTipo("Nota que desea publicar: 1.Nota escrita, 2.Nota video", sc);
 				if (subTipo == 1) {
-					System.out.println("Has elegido Nota escrita como tipo de publicacion");
-					System.out.println("Ingrese tamano (area) de la nota escrita");
-					int tamano = sc.nextInt();
+					System.out.println("Ingrese ancho de la nota escrita");
+					ancho = sc.nextInt();
+					System.out.println("Ingrese alto de la nota escrita");
+					alto = sc.nextInt();
 					System.out.println("Ingrese el genero de la nota escrita");
 					String genero = sc.next();
 					System.out.println("Ingrese nombre completo del autor de la nota escrita");
 					String autor = sc.next();
-					NotaEscrita notaEsc = new NotaEscrita(tamano, genero, autor);
+					NotaEscrita notaEsc = new NotaEscrita(ancho, alto, genero, autor);
 					publicaciones[i] = notaEsc;
 				} else {
-					System.out.println("Has elegido Nota video como tipo de publicacion");
-					System.out.println("Ingrese tamano (area) de la nota video");
-					int tamano = sc.nextInt();
+					System.out.println("Ingrese ancho de la nota video");
+					ancho = sc.nextInt();
+					System.out.println("Ingrese alto de la nota escrita");
+					alto = sc.nextInt();
 					System.out.println("Ingrese el genero de la nota video");
 					String genero = sc.next();
 					System.out.println("Ingrese nombre completo del periodista de la nota video");
 					String periodista = sc.next();
-					NotaVideo notaVideo = new NotaVideo(tamano, genero, periodista);
+					NotaVideo notaVideo = new NotaVideo(ancho, alto, genero, periodista);
 					publicaciones[i] = notaVideo;
 				}
 			} else {
-				System.out.println("Has elegido Publicidad como tipo de publicacion");
-				System.out.println("Ingrese tamano de la publicacion: 1.Chico, 2.Mediano, 3.Grande");
-				int tamano = sc.nextInt();
+				System.out.println("Ingrese ancho de la publicacion");
+				ancho = sc.nextInt();
+				System.out.println("Ingrese alto de la nota escrita");
+				alto = sc.nextInt();
 				System.out.println("Ingrese nombre de la marca");
 				String marca = sc.next();
-				Publicidad publicidad = new Publicidad(tamano, marca);
+				Publicidad publicidad = new Publicidad(ancho, alto, marca);
 				publicidad.isTieneImagen();
-				if (publicidad.tieneImagen) {
-					publicidad.getPrecioImagen();
-					publicaciones[i] = publicidad;
-				} else {
-					publicidad.getPrecioImagen();
-					publicaciones[i] = publicidad;
-				}
+				publicidad.getPrecioImagen();
+				publicaciones[i] = publicidad;
 			}
 		}
+		System.out.println();
 
-		// Falta calcular el costo total de las publicidades
+		for (int i = 0; i < TOTAL_PUBLICACIONES; i++) {
+			if (publicaciones[i] instanceof Publicidad) {
+				Publicidad aux = (Publicidad) publicaciones[i];
+				totalRecaudado += aux.facturacion(ancho, alto);
+			}
+		}
+		System.out.println();
 		System.out.println("El total de recaudado por publicidades es: " + totalRecaudado);
 	}
 

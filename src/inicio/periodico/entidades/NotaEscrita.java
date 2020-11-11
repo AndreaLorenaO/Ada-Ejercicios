@@ -6,8 +6,8 @@ public class NotaEscrita extends Nota {
 	private String texto;
 	protected int cantPalabras;
 
-	public NotaEscrita(int tamano, String genero, String autor) {
-		super(tamano, genero);
+	public NotaEscrita(int ancho, int alto, String genero, String autor) {
+		super(ancho, alto, genero);
 		this.autor = autor;
 	}
 
@@ -36,7 +36,7 @@ public class NotaEscrita extends Nota {
 	}
 
 	public String toString() {
-		return "Tipo Nota Escrita; Tamano: " + tamano + ";" + " Genero: " + genero + ";" + " Autor: " + autor;
+		return "Tipo Nota Escrita; Tamano: " + ancho * alto + ";" + " Genero: " + genero + ";" + " Autor: " + autor;
 	}
 
 }

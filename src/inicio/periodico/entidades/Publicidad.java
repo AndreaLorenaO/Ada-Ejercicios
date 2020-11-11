@@ -2,20 +2,17 @@ package inicio.periodico.entidades;
 
 import java.util.Scanner;
 
-public class Publicidad extends Publicacion {
+public class Publicidad extends Publicacion implements Facturable {
 
 	public boolean tieneImagen;
 	protected final static int PRECIO_IMAGEN = 1000;
-	protected final static int PRECIO_TAMANOCHICO = 500;
-	protected final static int PRECIO_TAMANOMEDIANO = 1000;
-	protected final static int PRECIO_TAMANOGRANDE = 1500;
+	private static final int VALOR_PIXEL = 100;
 	protected int precioImagen;
-	protected int costo;
 	protected int costoTotal;
 	protected String marca;
 
-	public Publicidad(int tamano, String marca) {
-		super(tamano);
+	public Publicidad(int ancho, int alto, String marca) {
+		super(ancho, alto);
 		this.marca = marca;
 	}
 
@@ -23,7 +20,7 @@ public class Publicidad extends Publicacion {
 		System.out.println("Desea agregar una imagen? (S / N)");
 		Scanner sc = new Scanner(System.in);
 		if (sc.next().equalsIgnoreCase("s")) {
-			tieneImagen = true;
+			return tieneImagen = true;
 		}
 		return tieneImagen;
 	}
@@ -33,7 +30,7 @@ public class Publicidad extends Publicacion {
 	}
 
 	public int getPrecioImagen() {
-		if (tieneImagen = true) {
+		if (tieneImagen == true) {
 			precioImagen = PRECIO_IMAGEN;
 		} else {
 			precioImagen = 0;
@@ -43,26 +40,6 @@ public class Publicidad extends Publicacion {
 
 	public void setPrecioImagen(int precioImagen) {
 		this.precioImagen = precioImagen;
-	}
-
-	public int getCosto() {
-		switch (tamano) {
-		case 1:
-			costo = PRECIO_TAMANOCHICO;
-			break;
-		case 2:
-			costo = PRECIO_TAMANOMEDIANO;
-			break;
-		case 3:
-			costo = PRECIO_TAMANOGRANDE;
-			break;
-		}
-		return costo;
-	}
-
-	public int setCosto() {
-		costoTotal = precioImagen + costo;
-		return costoTotal;
 	}
 
 	public String getMarca() {
@@ -82,12 +59,11 @@ public class Publicidad extends Publicacion {
 	}
 
 	public String toString() {
-		return "Tipo Publicidad; Tamano: " + tamano + ";" + " Marca: " + marca;
+		return "Tipo Publicidad; Tamano: " + ancho * alto + ";" + " Marca: " + marca;
 	}
 
-	public int calcularPrecio() {
-		int costoTotal = costo + PRECIO_IMAGEN;
-		return costoTotal;
+	@Override
+	public double facturacion(int alto, int ancho) {
+		return alto * ancho * VALOR_PIXEL + precioImagen;
 	}
-
 }

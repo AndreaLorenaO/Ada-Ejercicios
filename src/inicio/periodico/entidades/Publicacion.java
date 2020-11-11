@@ -2,18 +2,28 @@ package inicio.periodico.entidades;
 
 public abstract class Publicacion {
 
-	protected int tamano;
+	protected int ancho;
+	protected int alto;
 
-	public Publicacion(int tamano) {
-		this.tamano = tamano;
+	public Publicacion(int ancho, int alto) {
+		this.ancho = ancho;
+		this.alto = alto;
 	}
 
-	public int getTamano() {
-		return tamano;
+	public int getAncho() {
+		return ancho;
 	}
 
-	public void setTamano(int tamano) {
-		this.tamano = tamano;
+	public void setAncho(int ancho) {
+		this.ancho = ancho;
+	}
+
+	public int getAlto() {
+		return alto;
+	}
+
+	public void setAlto(int alto) {
+		this.alto = alto;
 	}
 
 }

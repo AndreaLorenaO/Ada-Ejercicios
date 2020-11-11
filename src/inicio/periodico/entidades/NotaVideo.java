@@ -5,8 +5,8 @@ public class NotaVideo extends Nota {
 	protected int duracionVideo;
 	private String periodista;
 
-	public NotaVideo(int tamano, String genero, String periodista) {
-		super(tamano, genero);
+	public NotaVideo(int ancho, int alto, String genero, String periodista) {
+		super(ancho, alto, genero);
 		this.periodista = periodista;
 	}
 
@@ -27,7 +27,7 @@ public class NotaVideo extends Nota {
 	}
 
 	public String toString() {
-		return "Tipo Nota Video; Tamano: " + tamano + ";" + " Genero: " + genero + ";" + " Autor: " + periodista;
+		return "Tipo Nota Video; Tamano: " + ancho * alto + ";" + " Genero: " + genero + ";" + " Autor: " + periodista;
 	}
 
 }
