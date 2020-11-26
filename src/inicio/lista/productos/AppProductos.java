@@ -55,7 +55,7 @@ public class AppProductos {
 		System.out.println();
 		System.out.println("Las ventas del dia son:");
 		productosVendidos.forEach(x -> System.out.println(x));
-		System.out.println("La recaudacion total del dia es: " + formatoDosDecimales.format(totalPrecio));
+		System.out.println("La venta total del dia es: " + formatoDosDecimales.format(totalPrecio));
 	}
 
 	private static double getRandomNumberPrecio(int precioMin, int precioRango) {
