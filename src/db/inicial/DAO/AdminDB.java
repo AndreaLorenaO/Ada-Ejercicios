@@ -16,7 +16,7 @@ public class AdminDB {
 
 //		Busca y carga la clase "Driver" en la memoria (dentro del archivo .jar) con la ruta que le pase
 		Class.forName("com.mysql.cj.jdbc.Driver");
-		return DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/cursos", "root", "");
+		return DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/db", "root", "");
 	}
 
 //	El profe tuvo un error con respecto a la zona horario
