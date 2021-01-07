@@ -41,25 +41,28 @@ public class CursoDAO {
 			int professorId = rs.getInt(7);
 			Course course = new Course(courseName, courseSchedule, courseDuration, courseStart, courseEnd, professorId);
 			course.setId(courseId);
-//			course.setSchedule(courseSchedule);
-//			course.setDuration(courseDuration);
-//			course.setStart(courseStart);
-//			course.setEnd(courseEnd);
 			listOfCourses.add(course);
 		}
 		return listOfCourses;
 	}
 
-	public static int delete(int courseId, Connection connection) throws SQLException {
-		PreparedStatement stmt = connection.prepareStatement("DELETE FROM COURSE WHERE ID = ?");
-		stmt.setInt(1, courseId);
+//	No dar de baja fisicamente el curso de la base de datos, sino un update de activo o inactivo	
+//	public static int delete(int courseId, Connection connection) throws SQLException {
+//		PreparedStatement stmt = connection.prepareStatement("DELETE FROM COURSE WHERE ID = ?");
+//		stmt.setInt(1, courseId);
+//		return stmt.executeUpdate();
+//	}
+
+	public static int updateCourseName(int courseId, String newName, Connection connection) throws SQLException {
+		PreparedStatement stmt = connection.prepareStatement("UPDATE COURSE SET NAME = ? WHERE ID = ?");
+		stmt.setString(1, newName);
+		stmt.setInt(2, courseId);
 		return stmt.executeUpdate();
 	}
 
-	public static int updateCourse(int courseId, String field, String newValue, Connection connection)
-			throws SQLException {
-		PreparedStatement stmt = connection.prepareStatement("UPDATE COURSE SET " + field + " = ? WHERE ID = ?");
-		stmt.setString(1, newValue);
+	public static int updateCourseState(int courseId, int optionState, Connection connection) throws SQLException {
+		PreparedStatement stmt = connection.prepareStatement("UPDATE COURSE SET STATE = ? WHERE ID = ?");
+		stmt.setInt(1, optionState);
 		stmt.setInt(2, courseId);
 		return stmt.executeUpdate();
 	}
@@ -68,7 +71,6 @@ public class CursoDAO {
 //		PreparedStatement stmt = connection.prepareStatement("SELECT * FROM CURSO WHERE NAME LIKE ?%");
 //		PreparedStatement stmt = connection.prepareStatement("SELECT * FROM CURSO WHERE NAME = ?");
 //		stmt.setString(1, name);
-
 		String sql = "SELECT * FROM COURSE WHERE NAME LIKE '%" + name + "%' ORDER BY NAME";
 		Statement stmt = connection.createStatement();
 		ResultSet rs = stmt.executeQuery(sql);

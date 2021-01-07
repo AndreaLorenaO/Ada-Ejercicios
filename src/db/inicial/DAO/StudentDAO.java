@@ -59,10 +59,17 @@ public class StudentDAO {
 		return stmt.executeUpdate();
 	}
 
-	public static int updateStudent(int studentId, String field, String newValue, Connection connection)
+	public static int updateStudentName(int studentId, String newName, Connection connection) throws SQLException {
+		PreparedStatement stmt = connection.prepareStatement("UPDATE STUDENT SET NAME = ? WHERE ID = ?");
+		stmt.setString(1, newName);
+		stmt.setInt(2, studentId);
+		return stmt.executeUpdate();
+	}
+
+	public static int updateStudentLastname(int studentId, String newLastname, Connection connection)
 			throws SQLException {
-		PreparedStatement stmt = connection.prepareStatement("UPDATE STUDENT SET " + field + " = ? WHERE ID = ?");
-		stmt.setString(1, newValue);
+		PreparedStatement stmt = connection.prepareStatement("UPDATE STUDENT SET LASTNAME = ? WHERE ID = ?");
+		stmt.setString(1, newLastname);
 		stmt.setInt(2, studentId);
 		return stmt.executeUpdate();
 	}

@@ -57,10 +57,17 @@ public class ProfessorDAO {
 		return stmt.executeUpdate();
 	}
 
-	public static int updateProfessor(int professorId, String field, String newValue, Connection connection)
+	public static int updateProfessorName(int professorId, String newName, Connection connection) throws SQLException {
+		PreparedStatement stmt = connection.prepareStatement("UPDATE PROFESSOR SET NAME = ? WHERE ID = ?");
+		stmt.setString(1, newName);
+		stmt.setInt(2, professorId);
+		return stmt.executeUpdate();
+	}
+
+	public static int updateProfessorLastname(int professorId, String newLastname, Connection connection)
 			throws SQLException {
-		PreparedStatement stmt = connection.prepareStatement("UPDATE PROFESSOR SET " + field + " = ? WHERE ID = ?");
-		stmt.setString(1, newValue);
+		PreparedStatement stmt = connection.prepareStatement("UPDATE PROFESSOR SET LASTNAME = ? WHERE ID = ?");
+		stmt.setString(1, newLastname);
 		stmt.setInt(2, professorId);
 		return stmt.executeUpdate();
 	}

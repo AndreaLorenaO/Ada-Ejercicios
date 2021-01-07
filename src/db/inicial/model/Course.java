@@ -84,4 +84,8 @@ public class Course {
 		this.professorId = professorId;
 	}
 
+	public String toString() {
+		return id + " - " + name;
+	}
+
 }

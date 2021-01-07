@@ -9,7 +9,7 @@ public class Registration {
 	private int commission;
 	private int evaluation1;
 	private int evaluation2;
-	private boolean state;
+	private int state;
 
 	public Registration(int courseId, int studentId, int commission) {
 		this.courseId = courseId;
@@ -73,11 +73,11 @@ public class Registration {
 		this.evaluation2 = evaluation2;
 	}
 
-	public boolean isState() {
+	public int isState() {
 		return state;
 	}
 
-	public void setState(boolean state) {
+	public void setState(int state) {
 		this.state = state;
 	}
 
