@@ -1,0 +1,9 @@
+opcion1
+opcion2
+opcion3
+
+expensas2021.txt
+sueldos202012.txt
+maximoPersonas=200
+
+ID    -    NOMBRE    -    APELLIDO    -    ESTADO
