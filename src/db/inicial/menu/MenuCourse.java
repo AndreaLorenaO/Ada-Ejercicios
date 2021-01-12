@@ -11,14 +11,7 @@ public class MenuCourse {
 	public static int printMenuCourse(Scanner sc, Connection connection) {
 		System.out.println();
 		System.out.println("Course menu");
-		System.out.println("----");
-		System.out.println("1.Enrollment");
-		System.out.println("2.List");
-		System.out.println("3.Update");
-		System.out.println("4.Search course");
-		System.out.println("0.Exit");
-		System.out.println();
-		System.out.println("Please enter option:");
+		MenuOptions.printPartMenu();
 		return sc.nextInt();
 	}
 

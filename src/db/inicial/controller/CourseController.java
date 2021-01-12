@@ -11,7 +11,9 @@ import db.inicial.model.Course;
 public class CourseController {
 
 	public static void courseEnrollment(Scanner sc, Connection connection) throws SQLException {
+
 		System.out.println("Enter course name you wish to enroll:");
+//		Validar nombre del curso
 		String courseName = sc.next();
 		sc.nextLine();
 		System.out.println("Enter course schedule:");
@@ -35,9 +37,7 @@ public class CourseController {
 		List<Course> listOfCourses = CursoDAO.findAll(connection);
 		System.out.println("ID - NAME - SCHEDULE - DURATION - START - END - PROFESSOR ID");
 		for (Course course : listOfCourses) {
-			System.out.println(course.getId() + " - " + course.getName() + " - " + course.getSchedule() + " - "
-					+ course.getDuration() + " - " + course.getStart() + " - " + course.getEnd() + " - "
-					+ course.getProfessorId());
+			System.out.println(course.toString());
 		}
 	}
 
@@ -81,7 +81,6 @@ public class CourseController {
 		String courseName = sc.next();
 		List<Course> list = CursoDAO.findByName(courseName, connection);
 		System.out.println();
-		list.forEach(course -> course.toString());
+		list.forEach(System.out::println);
 	}
-
 }

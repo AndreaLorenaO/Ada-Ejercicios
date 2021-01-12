@@ -2,6 +2,7 @@ package db.inicial.controller;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.Scanner;
 
 import db.inicial.DAO.RegistrationDAO;
@@ -28,20 +29,32 @@ public class RegistrationController {
 	}
 
 	public static void registrationEnrollment(Scanner sc, Connection connection) throws SQLException {
-		System.out.println("Please enter student id to start registration");
-		int studentId = sc.nextInt();
 		System.out.println("Please enter course id the student wishes to register for:");
 		int courseId = sc.nextInt();
-//		Course course = CursoDAO.findById(courseId, connection);
-//		System.out.println("You wish to register the student in: " + course.getName());
-
-//		Professor professor = ProfessorDAO.findProfessorByCourse(courseId, connection);
-
-		System.out.println("Please enter commision you would like to register: 1 or 2");
-		int comission = sc.nextInt();
-		Registration registration = new Registration(courseId, studentId, comission);
+		System.out.println("Please enter student id:");
+		int studentId = sc.nextInt();
+		System.out.println("Please enter professor id:");
+		int professorId = sc.nextInt();
+		System.out.println("Please enter commision the student wishes to be in:");
+		int commission = sc.nextInt();
+		System.out.println("Please enter student first evaluation:");
+		int evaluation1 = sc.nextInt();
+		System.out.println("Please enter student second evaluation:");
+		int evaluation2 = sc.nextInt();
+		System.out.println("Please enter registration state:");
+		int state = sc.nextInt();
+		Registration registration = new Registration(courseId, studentId, professorId, commission, evaluation1,
+				evaluation2, state);
 		RegistrationDAO.insert(registration, connection);
 		System.out.println("Registration successful");
 	}
 
+	public static void registrationListByStudent(Connection connection) throws SQLException {
+		System.out.println("Registration list of students:");
+		List<Registration> listStudents = RegistrationDAO.findAll(connection);
+		System.out.println("ID - NAME - SCHEDULE - DURATION - START - END - PROFESSOR ID");
+		for (Registration registration : listStudents) {
+			System.out.println(registration.toString());
+		}
+	}
 }

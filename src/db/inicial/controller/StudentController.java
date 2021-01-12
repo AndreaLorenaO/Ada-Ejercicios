@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Scanner;
 
 import db.inicial.DAO.StudentDAO;
+import db.inicial.io.Util;
 import db.inicial.model.Student;
 
 public class StudentController {
@@ -14,10 +15,13 @@ public class StudentController {
 		sc.nextLine();
 		System.out.println("Enter student name you wish to enroll:");
 		String studentName = sc.nextLine();
+		Util.validarlongitud(sc, studentName);
 		System.out.println("Enter student lastname:");
 		String studentLastname = sc.nextLine();
+		Util.validarlongitud(sc, studentLastname);
 		System.out.println("Enter student e-mail:");
 		String studentEmail = sc.next();
+		Util.validarlongitud(sc, studentEmail);
 		System.out.println("Enter student cellphone:");
 		String studentCellphone = sc.next();
 		sc.nextLine();

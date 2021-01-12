@@ -28,6 +28,17 @@ public class Course {
 		this.professorId = professorId;
 	}
 
+	public Course(int id, String name, String schedule, String duration, String start, String end, int professorId) {
+
+		this.id = id;
+		this.name = name;
+		this.schedule = schedule;
+		this.duration = duration;
+		this.start = start;
+		this.end = end;
+		this.professorId = professorId;
+	}
+
 	public int getId() {
 		return id;
 	}
@@ -85,7 +96,8 @@ public class Course {
 	}
 
 	public String toString() {
-		return id + " - " + name;
+		return id + " - " + name + " - " + schedule + " - " + duration + " - " + start + " - " + end + " - "
+				+ professorId;
 	}
 
 }

@@ -77,7 +77,8 @@ public class CursoDAO {
 		List<Course> list = new ArrayList<Course>();
 		Course course = null;
 		while (rs.next()) {
-			course = new Course(rs.getInt(1), rs.getString(2));
+			course = new Course(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5),
+					rs.getString(6), rs.getInt(7));
 			list.add(course);
 		}
 		return list;

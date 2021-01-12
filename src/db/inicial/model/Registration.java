@@ -2,7 +2,7 @@ package db.inicial.model;
 
 public class Registration {
 
-	private int id;
+	private int registrationId;
 	private int courseId;
 	private int studentId;
 	private int professorId;
@@ -11,18 +11,28 @@ public class Registration {
 	private int evaluation2;
 	private int state;
 
+	public Registration(int courseId, int studentId, int professorId, int commission, int evaluation1, int evaluation2,
+			int state) {
+		this.courseId = courseId;
+		this.studentId = studentId;
+		this.professorId = professorId;
+		this.commission = commission;
+		this.evaluation1 = evaluation1;
+		this.evaluation2 = evaluation2;
+		this.state = state;
+	}
+
 	public Registration(int courseId, int studentId, int commission) {
 		this.courseId = courseId;
 		this.studentId = studentId;
 		this.commission = commission;
 	}
 
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
+	public Registration(int registrationId, int courseId, int studentId, int commission) {
+		this.registrationId = registrationId;
+		this.courseId = courseId;
+		this.studentId = studentId;
+		this.commission = commission;
 	}
 
 	public int getCourseId() {
@@ -73,7 +83,15 @@ public class Registration {
 		this.evaluation2 = evaluation2;
 	}
 
-	public int isState() {
+	public int getRegistrationId() {
+		return registrationId;
+	}
+
+	public void setRegistrationId(int registrationId) {
+		this.registrationId = registrationId;
+	}
+
+	public int getState() {
 		return state;
 	}
 

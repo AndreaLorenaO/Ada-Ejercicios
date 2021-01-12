@@ -11,14 +11,7 @@ public class MenuStudent {
 	public static int printMenuStudent(Scanner sc, Connection connection) throws SQLException {
 		System.out.println();
 		System.out.println("Student menu");
-		System.out.println("----");
-		System.out.println("1.Enrollment");
-		System.out.println("2.List");
-		System.out.println("3.Update");
-		System.out.println("4.Search student");
-		System.out.println("0.Exit");
-		System.out.println();
-		System.out.println("Please enter option:");
+		MenuOptions.printPartMenu();
 		return sc.nextInt();
 	}
 

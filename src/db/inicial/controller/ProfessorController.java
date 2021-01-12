@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Scanner;
 
 import db.inicial.DAO.ProfessorDAO;
+import db.inicial.io.Util;
 import db.inicial.model.Professor;
 
 public class ProfessorController {
@@ -34,10 +35,13 @@ public class ProfessorController {
 		sc.nextLine();
 		System.out.println("Enter professor name you wish to add:");
 		String professorName = sc.nextLine();
+		Util.validarlongitud(sc, professorName);
 		System.out.println("Enter professor lastname:");
 		String professorLastname = sc.nextLine();
+		Util.validarlongitud(sc, professorLastname);
 		System.out.println("Enter professor e-mail:");
 		String professorEmail = sc.next();
+		Util.validarlongitud(sc, professorEmail);
 		System.out.println("Enter professor cellphone:");
 		String professorCellphone = sc.next();
 		Professor professor = new Professor(professorName, professorLastname, professorEmail, professorCellphone);
