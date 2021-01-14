@@ -18,7 +18,7 @@ public class AppIOBuffered {
 
 		// Write the content in file
 		try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(absolutePath))) {
-			String fileContent = "This is a sample text.";
+			String fileContent = "This is a sample text." + '\n' + "second line";
 			bufferedWriter.write(fileContent);
 		} catch (IOException e) {
 			// Exception handling
