@@ -11,26 +11,6 @@ import db.inicial.model.Professor;
 
 public class ProfessorController {
 
-	public static void professorSelection(Scanner sc, Connection connection, int professorOption) throws SQLException {
-		switch (professorOption) {
-		case 1:
-			professorEnrollment(sc, connection);
-			break;
-		case 2:
-			professorList(connection);
-			break;
-		case 3:
-			professorDisenrollment(sc, connection);
-			break;
-		case 4:
-			professorUpdate(sc, connection);
-			break;
-		case 5:
-			findProfessor(sc, connection);
-			break;
-		}
-	}
-
 	public static void professorEnrollment(Scanner sc, Connection connection) throws SQLException {
 		sc.nextLine();
 		System.out.println("Enter professor name you wish to add:");
@@ -59,21 +39,21 @@ public class ProfessorController {
 		}
 	}
 
-	public static void professorDisenrollment(Scanner sc, Connection connection) throws SQLException {
-		System.out.println("Enter professor Id you wish to disenroll:");
-		int professorId = sc.nextInt();
-		Professor professorDelete = ProfessorDAO.findById(professorId, connection);
-		if (professorDelete == null) {
-			System.err.println("The professor was not found");
-		} else {
-			int modified = ProfessorDAO.delete(professorId, connection);
-			if (modified == 1) {
-				System.out.println("Successful disenrollment of the professor");
-			} else {
-				System.err.println("Disenrollment could not be accomplished");
-			}
-		}
-	}
+//	public static void professorDisenrollment(Scanner sc, Connection connection) throws SQLException {
+//		System.out.println("Enter professor Id you wish to disenroll:");
+//		int professorId = sc.nextInt();
+//		Professor professorDelete = ProfessorDAO.findById(professorId, connection);
+//		if (professorDelete == null) {
+//			System.err.println("The professor was not found");
+//		} else {
+//			int modified = ProfessorDAO.delete(professorId, connection);
+//			if (modified == 1) {
+//				System.out.println("Successful disenrollment of the professor");
+//			} else {
+//				System.err.println("Disenrollment could not be accomplished");
+//			}
+//		}
+//	}
 
 	public static void professorUpdate(Scanner sc, Connection connection) throws SQLException {
 		System.out.println("Enter professor Id you wish to update:");

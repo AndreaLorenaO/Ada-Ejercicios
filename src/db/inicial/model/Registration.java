@@ -28,6 +28,14 @@ public class Registration {
 		this.commission = commission;
 	}
 
+	public Registration(int courseId, int studentId, int professorId, int commission, int state) {
+		this.courseId = courseId;
+		this.studentId = studentId;
+		this.professorId = professorId;
+		this.commission = commission;
+		this.state = state;
+	}
+
 	public Registration(int registrationId, int courseId, int studentId, int commission) {
 		this.registrationId = registrationId;
 		this.courseId = courseId;
@@ -97,6 +105,11 @@ public class Registration {
 
 	public void setState(int state) {
 		this.state = state;
+	}
+
+	public String toString() {
+		return registrationId + " - " + courseId + " - " + studentId + " - " + professorId + " - " + commission + " - "
+				+ state;
 	}
 
 }

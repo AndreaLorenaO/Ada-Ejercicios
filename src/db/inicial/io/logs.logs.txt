@@ -1,0 +1,7 @@
+Registration date: 2021-01-14 16:41:19
+; registration #: 0
+; student id: 2
+; course id: 4
+; professor id: 2
+; commission: 2
+; state: 1

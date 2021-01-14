@@ -24,12 +24,12 @@ public class MenuRegistration {
 		case 2:
 			RegistrationController.registrationListByStudent(connection);
 			break;
-//		case 3:
-//			RegistrationController.registrationListByEvaluation(sc, connection);
-//			break;
-//		case 4:
-//			RegistrationController.registrationUpdate(sc, connection);
-//			break;
+		case 3:
+			RegistrationController.registrationListByEvaluation(sc, connection);
+			break;
+		case 4:
+			RegistrationController.registrationUpdateState(sc, connection);
+			break;
 		}
 	}
 

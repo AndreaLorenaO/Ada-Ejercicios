@@ -42,21 +42,21 @@ public class StudentController {
 		}
 	}
 
-	public static void studentDisenrollment(Scanner sc, Connection connection) throws SQLException {
-		System.out.println("Enter student Id you wish to disenroll:");
-		int studentId = sc.nextInt();
-		Student studentDelete = StudentDAO.findById(studentId, connection);
-		if (studentDelete == null) {
-			System.err.println("The student was not found");
-		} else {
-			int modified = StudentDAO.delete(studentId, connection);
-			if (modified == 1) {
-				System.out.println("Successful disenrollment");
-			} else {
-				System.err.println("Disenrollment could not be accomplished");
-			}
-		}
-	}
+//	public static void studentDisenrollment(Scanner sc, Connection connection) throws SQLException {
+//		System.out.println("Enter student Id you wish to disenroll:");
+//		int studentId = sc.nextInt();
+//		Student studentDelete = StudentDAO.findById(studentId, connection);
+//		if (studentDelete == null) {
+//			System.err.println("The student was not found");
+//		} else {
+//			int modified = StudentDAO.delete(studentId, connection);
+//			if (modified == 1) {
+//				System.out.println("Successful disenrollment");
+//			} else {
+//				System.err.println("Disenrollment could not be accomplished");
+//			}
+//		}
+//	}
 
 	public static void studentUpdate(Scanner sc, Connection connection) throws SQLException {
 		System.out.println("Enter student Id you wish to update:");

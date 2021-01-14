@@ -6,8 +6,6 @@ import java.sql.Statement;
 import java.util.Scanner;
 
 import db.inicial.DAO.AdminDB;
-import db.inicial.controller.ProfessorController;
-import db.inicial.controller.RegistrationController;
 import db.inicial.menu.MenuCourse;
 import db.inicial.menu.MenuOptions;
 import db.inicial.menu.MenuProfessor;
@@ -75,7 +73,7 @@ public class AppJDBC {
 	private static void professor(Scanner sc, Connection connection) throws SQLException {
 		int professorMenuOption = MenuProfessor.printMenuProfessor(sc, connection);
 		while (professorMenuOption != 0) {
-			ProfessorController.professorSelection(sc, connection, professorMenuOption);
+			MenuProfessor.professorSelection(sc, connection, professorMenuOption);
 			professorMenuOption = MenuProfessor.printMenuProfessor(sc, connection);
 		}
 	}
@@ -83,7 +81,7 @@ public class AppJDBC {
 	private static void registration(Scanner sc, Connection connection) throws SQLException {
 		int registrationMenuOption = MenuRegistration.printMenuRegistration(sc, connection);
 		while (registrationMenuOption != 0) {
-			RegistrationController.registrationSelection(sc, connection, registrationMenuOption);
+			MenuRegistration.registrationSelection(sc, connection, registrationMenuOption);
 			registrationMenuOption = MenuRegistration.printMenuRegistration(sc, connection);
 		}
 	}

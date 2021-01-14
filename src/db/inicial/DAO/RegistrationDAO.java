@@ -13,14 +13,12 @@ public class RegistrationDAO {
 
 	public static void insert(Registration registration, Connection connection) throws SQLException {
 		PreparedStatement stmt = connection.prepareStatement(
-				"INSERT INTO REGISTRATION (ID_COURSE, ID_STUDENT, ID_PROFESSOR, COMMISSION, EVALUATION_1, EVALUATION_2, STATE) VALUES (?, ?, ?, ?, ?, ?, ?)");
+				"INSERT INTO REGISTRATION (ID_COURSE, ID_STUDENT, ID_PROFESSOR, COMMISSION, STATE) VALUES (?, ?, ?, ?, ?)");
 		stmt.setInt(1, registration.getCourseId());
 		stmt.setInt(2, registration.getStudentId());
 		stmt.setInt(3, registration.getProfessorId());
 		stmt.setInt(4, registration.getCommission());
-		stmt.setInt(5, registration.getEvaluation1());
-		stmt.setInt(6, registration.getEvaluation2());
-		stmt.setInt(7, registration.getState());
+		stmt.setInt(5, registration.getState());
 		stmt.executeUpdate();
 	}
 
@@ -39,6 +37,13 @@ public class RegistrationDAO {
 			listStudents.add(registration);
 		}
 		return listStudents;
+	}
+
+	public static int updateStudent(int studentId, String newName, Connection connection) throws SQLException {
+		PreparedStatement stmt = connection.prepareStatement("UPDATE STUDENT SET NAME = ? WHERE ID = ?");
+		stmt.setString(1, newName);
+		stmt.setInt(2, studentId);
+		return stmt.executeUpdate();
 	}
 
 }

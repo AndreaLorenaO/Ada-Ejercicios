@@ -12,7 +12,7 @@ public class MenuOptions {
 		return sc.nextInt();
 	}
 
-	public static void printPartMenu() {
-		IOBuffered.lecturaPrintParteMenu();
+	public static void printSubMenu() {
+		IOBuffered.lecturaPrintSubMenu();
 	}
 }

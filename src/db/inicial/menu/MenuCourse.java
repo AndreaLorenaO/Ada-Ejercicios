@@ -11,7 +11,7 @@ public class MenuCourse {
 	public static int printMenuCourse(Scanner sc, Connection connection) {
 		System.out.println();
 		System.out.println("Course menu");
-		MenuOptions.printPartMenu();
+		MenuOptions.printSubMenu();
 		return sc.nextInt();
 	}
 
